@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
 const useGitHub = (username) => {
+  
   const [user, setUser] = useState(null);
   const [error, setError] = useState(null);
   const [loading, setLoading] = useState(false);
@@ -23,7 +24,9 @@ const useGitHub = (username) => {
         setLoading(false);
       }
     };
+
     fetchData();
+    
   }, [username]);
 
   return {user, loading, error};

@@ -2,6 +2,7 @@ import { useState } from "react";
 import GitHubUser from "./GitHubUser";
 
 const FindUser = () => {
+  
   const [userName, setUserName] = useState("");
 
   return (
