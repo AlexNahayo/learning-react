@@ -11,7 +11,8 @@ const Parent = () => {
                 Click me
             </button>
 
-            <Child header={`I am a  ${count} child`} />
+            {/* <Child header={`I am a ${count} child`} /> */}
+            <Child header={`I am a child`} />
         </div>
     )
 }
