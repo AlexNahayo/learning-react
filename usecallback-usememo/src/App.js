@@ -6,7 +6,7 @@ function App() {
   const [name, setName] = useState("");
   const [counter, setCounter] = useState(0);
 
-  // the below function is only called/rendered when name changes
+  // the below function is only called/rendered when name changes 
   const getGreeting = useCallback(() => {
     return `Hello ${name}!`;
   }, [name]);
