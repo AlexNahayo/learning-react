@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { changeColor, selectColor } from "./canvasSlice";
+import { changeColor, selectColor, paintColorAsync, selectColorLoading } from "./canvasSlice";
 
 import styles from './Canvas.module.css';
 import logo from '../../logo.svg';
@@ -7,10 +7,10 @@ import logo from '../../logo.svg';
 const Color = () => {
   const color = useSelector(selectColor);
   const dispatch = useDispatch();
-
+  const isColorLoading = useSelector(selectColorLoading);
   return(
     <div className={styles.colors}>
-      <h2>Colors</h2>
+      <h2>Colors{ isColorLoading === 'loading' ? '(Loading...)': null}</h2>
       <div 
         className={styles.circle} 
         style={{backgroundColor: color}}>
@@ -37,6 +37,12 @@ const Color = () => {
           onClick={(color) => dispatch(changeColor('pink'))}>
             Pink
         </button>
+        <button
+          className={styles.btn}
+          onClick={(color) => dispatch(paintColorAsync())}>
+            Random
+        </button>
+
       </div>
     </div>
   )
